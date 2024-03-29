@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('your-image-url.jpg'); /* Thay thế 'your-image-url.jpg' bằng URL hình ảnh nền của bạn */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+    width: 200%;
+    height: 100vh;
+    position: relative;
+    background-image: url('frame-image.jpg'); /* Thay thế 'frame-image.jpg' bằng URL ảnh khung của bạn */
+    background-size: cover;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 192, 203, 1); /* Màu hồng */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Đảm bảo hiển thị trên top layer */
+    pointer-events: auto; /* Cho phép sự kiện click */
+}
+
+.content {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* CSS cho phần circle (có thể giữ nguyên phần này) */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* ... (các quy tắc CSS khác) */
+}
+
+.content:hover {
+    background-color: #FF5733; /* Thay đổi màu nền khi hover vào layer */
+    color: #fff; /* Thay đổi màu chữ khi hover vào layer */
+    cursor: pointer; /* Biến con trỏ thành hình bàn tay khi hover vào layer để chỉ ra tính năng click */
+    transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 152, 219, 0.7);
+    border-radius: 0;
+    position: absolute;
+    animation: bounce 2s ease-in-out infinite, colorChange 4s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+    pointer-events: auto; /* Cho phép sự kiện click */
+}
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+p {
+    margin: 0;
+    font-size: 2em;
+}
+
+ @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+} 
+
+@keyframes colorChange {
+    0% {
+        background-color: rgba(255, 192, 203, 1);
+    }
+    25% {
+        background-color: rgba(255, 192, 203, 1);
+    }
+    50% {
+        background-color: rgba(255, 192, 203, 1);
+    }
+    75% {
+        background-color: rgba(255, 192, 203, 1);
+    }
+    100% {
+        background-color: rgba(255, 192, 203, 1);
+    }
+} 
+
+.choices {
+    display: table;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.choices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.choice {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px; /* Thêm margin cho cả hai ô "Có" và "Không" */
+    font-size: 1.5em;
+    width: calc(33.33% + 15px); /* Tăng kích thước chiều rộng của ô "Có" và "Không" thêm 5px */
+    flex: none; /* Sử dụng flex: none để ngăn phần "choices" thu nhỏ con của nó */
+    background-color: #3498db;
+}
+
+#yesChoice {
+    background-color: #db34c5; /* Màu ban đầu cho "Có" */
+    margin-top: 150px;
+}
+
+#noChoice {
+    background-color: #db34b4; /* Màu ban đầu cho "Không" */
+    margin-top: 150px;
+}
+
+.choice:last-child {
+    margin-left: 10px; /* Thêm margin-left cho ô "Không" */
+    background-color: #e74c3c;
+}
+
+.choices {
+    margin-top: 30%; /* Đẩy cả phần "Có" và "Không" xuống dưới khoảng 250% */
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
